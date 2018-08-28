@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\Static\Tests\Unit\Controller;
+namespace OCA\Raw\Tests\Unit\Controller;
 
 use PHPUnit_Framework_TestCase;
 
 use OCP\AppFramework\Http\TemplateResponse;
 
-use OCA\Static\Controller\PageController;
+use OCA\Raw\Controller\PageController;
 
 
 class PageControllerTest extends PHPUnit_Framework_TestCase {
@@ -17,7 +17,7 @@ class PageControllerTest extends PHPUnit_Framework_TestCase {
 		$request = $this->getMockBuilder('OCP\IRequest')->getMock();
 
 		$this->controller = new PageController(
-			'static', $request, $this->userId
+			'raw', $request, $this->userId
 		);
 	}
 

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>static</id>
-    <name>Static</name>
+    <id>raw</id>
+    <name>Raw</name>
     <summary>a</summary>
     <description><![CDATA[a]]></description>
     <version>0.0.1</version>
     <licence>agpl</licence>
     <author mail="b@c.de" >a</author>
-    <namespace>Static</namespace>
+    <namespace>Raw</namespace>
     <category>files</category>
     <bugs>https://example.com</bugs>
     <dependencies>
@@ -16,8 +16,8 @@
     </dependencies>
     <navigations>
         <navigation>
-            <name>Static</name>
-            <route>static.page.index</route>
+            <name>Raw</name>
+            <route>raw.page.index</route>
         </navigation>
     </navigations>
 </info>

@@ -1,6 +1,6 @@
 <?php
-script('static', 'script');
-style('static', 'style');
+script('raw', 'script');
+style('raw', 'style');
 ?>
 
 <div id="app">
