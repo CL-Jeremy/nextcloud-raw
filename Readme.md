@@ -1,10 +1,5 @@
-<?xml version="1.0"?>
-<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>raw</id>
-    <name>Raw</name>
-    <summary>Serves files on the World Wide Web</summary>
-    <description>
+# Raw — Nextcloud raw file server
+
 Raw simply returns any requested file, so you can link directly to a file itself (i.e. without any
 of NextCloud's interface around it). This enables you to host static web pages, images or other
 files, for example to link/embed them elsewhere on the web.
@@ -24,15 +19,3 @@ have permission to read them. For example, a file named `test.html` in the Docum
 available at `https://my-nextcloud/apps/raw/files/Documents/test.html`.
 
 [Content-Security-Policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-</description>
-    <version>0.0.1</version>
-    <licence>agpl</licence>
-    <author mail="gerben@treora.com">Gerben</author>
-    <namespace>Raw</namespace>
-    <category>files</category>
-    <repository type="git">https://code.treora.com/gerben/nextcloud-raw</repository>
-    <bugs>https://code.treora.com/gerben/nextcloud-raw/issues</bugs>
-    <dependencies>
-        <nextcloud min-version="14" max-version="14"/>
-    </dependencies>
-</info>
