@@ -5,12 +5,13 @@ use \Exception;
 use OCP\IRequest;
 use OCP\Share\IManager;
 use OCP\AppFramework\Controller;
-use OCP\Files\Folder;
+use OCP\AppFramework\Http\NotFoundResponse;
+use OCP\Files\NotFoundException;
 
 class PubPageController extends Controller {
 	use RawResponse;
 
-	private $manager;
+	private $shareManager;
 
 	public function __construct(
 		$AppName,
@@ -18,7 +19,7 @@ class PubPageController extends Controller {
 		IManager $shareManager
 	) {
 		parent::__construct($AppName, $request);
-		$this->manager = $shareManager;
+		$this->shareManager = $shareManager;
 	}
 
 	/**
@@ -27,15 +28,9 @@ class PubPageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function getByToken($token) {
-		$share = $this->manager->getShareByToken($token);
+		$share = $this->shareManager->getShareByToken($token);
 		$node = $share->getNode();
-		if ($node->getType() === 'dir') {
-			// Is there some reasonable thing to return for a directory? An html index? A tarball?
-			throw new Exception("Requested share is a directory, not a file.");
-		}
-		$content = $node->getContent();
-		$mimetype = $node->getMimeType();
-		$this->returnRawResponse($content, $mimetype);
+		$this->returnRawResponse($node);
 	}
 
 	/**
@@ -44,18 +39,16 @@ class PubPageController extends Controller {
 	 * @NoCSRFRequired
 	 */
 	public function getByTokenAndPath($token, $path) {
-		$share = $this->manager->getShareByToken($token);
+		$share = $this->shareManager->getShareByToken($token);
 		$dirNode = $share->getNode();
 		if ($dirNode->getType() !== 'dir') {
 			throw new Exception("Received a sub-path for a share that is not a directory");
 		}
-		$fileNode = $dirNode->get($path);
-		if ($fileNode->getType() === 'dir') {
-			// Is there some reasonable thing to return for a directory? An html index? A tarball?
-			throw new Exception("Requested share is a directory, not a file.");
+		try {
+			$fileNode = $dirNode->get($path);
+		} catch (NotFoundException $e) {
+			return new NotFoundResponse();
 		}
-		$content = $fileNode->getContent();
-		$mimetype = $fileNode->getMimeType();
-		$this->returnRawResponse($content, $mimetype);
+		$this->returnRawResponse($fileNode);
 	}
 }

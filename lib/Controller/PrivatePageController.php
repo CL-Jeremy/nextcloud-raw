@@ -36,8 +36,6 @@ class PrivatePageController extends Controller {
 		} catch (NotFoundException $e) {
 			return new NotFoundResponse();
 		}
-		$content = $node->getContent();
-		$mimetype = $node->getMimeType();
-		$this->returnRawResponse($content, $mimetype);
+		$this->returnRawResponse($node);
 	}
 }
