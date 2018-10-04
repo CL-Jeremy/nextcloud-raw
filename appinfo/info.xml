@@ -25,7 +25,7 @@ Documents folder would be available at `https://my-nextcloud/apps/raw/u/anansi/D
 
 [Content-Security-Policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 </description>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <licence>agpl</licence>
     <author mail="gerben@treora.com">Gerben</author>
     <namespace>Raw</namespace>
