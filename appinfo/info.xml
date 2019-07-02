@@ -33,6 +33,6 @@ Documents folder would be available at `https://my-nextcloud/apps/raw/u/anansi/D
     <repository type="git">https://code.treora.com/gerben/nextcloud-raw</repository>
     <bugs>https://code.treora.com/gerben/nextcloud-raw/issues</bugs>
     <dependencies>
-        <nextcloud min-version="14" max-version="14"/>
+        <nextcloud min-version="14"/>
     </dependencies>
 </info>
